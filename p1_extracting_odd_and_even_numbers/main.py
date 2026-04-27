@@ -6,9 +6,12 @@ class OddEvenDetector:
 
 	def read_file(self):
 		print(f"Initializing file reading process for: {self.main_file}...")
+
 		with open(self.main_file, "r") as main_file:
 			read_contents = main_file.readlines()
+
 		print("Data loaded successfully!")
+
 		while True:
 			choice = input("\nDo you want to play a game? Y/N: ").upper()
 			if choice == "Y":
