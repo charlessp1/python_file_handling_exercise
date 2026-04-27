@@ -1,4 +1,3 @@
-# Creating function to read the file
 class OddEvenDetector:
 	def __init__(self, main_file, even_file, odd_file):
 		self.main_file = main_file
