@@ -55,6 +55,18 @@ class OddEvenDetector:
 				else:
 					print("Invalid input! You are automatically wrong, try again!")
 
+		print(f"Game complete! Final score: {score}")
+		print("Extracting numbers to even.txt and odd.txt")
+
+		with open(self.even_file, "w") as even_file:
+			for num in even_nums:
+				even_file.write(str(num) + "\n")
+
+		with open(self.odd_file, "w") as odd_file:
+			for num in odd_nums:
+				odd_file.write(str(num) + "\n")
+
+		print("Extraction complete!")
 
 files = OddEvenDetector("numbers.txt", "even.txt", "odd.txt")
 files.read_file()
