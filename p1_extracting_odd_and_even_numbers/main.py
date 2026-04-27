@@ -1,7 +1,6 @@
 # Creating function to read the file
 class OddEvenDetector:
 	def __init__(self, main_file, even_file, odd_file):
-
 		self.main_file = main_file
 		self.even_file = even_file
 		self.odd_file = odd_file
@@ -11,7 +10,6 @@ class OddEvenDetector:
 		with open(self.main_file, "r") as main_file:
 			read_contents = main_file.readlines()
 		print("Data loaded successfully!")
-
 		while True:
 			choice = input("\nDo you want to play a game? Y/N: ").upper()
 			if choice == "Y":
@@ -61,12 +59,35 @@ class OddEvenDetector:
 		with open(self.even_file, "w") as even_file:
 			for num in even_nums:
 				even_file.write(str(num) + "\n")
-
 		with open(self.odd_file, "w") as odd_file:
 			for num in odd_nums:
 				odd_file.write(str(num) + "\n")
 
 		print("Extraction complete!")
+
+	def sort_file(self, read_content):
+		even = []
+		odd = []
+
+		print("Scanning for odd and even numbers...")
+
+		for line in read_content:
+			number = line.strip()
+			if number != "":
+				number = int(number)
+				if number % 2 == 0:
+					even.append(number)
+				else:
+					odd.append(number)
+
+		with open(self.even_file, "w") as even_file:
+			for num in even:
+				even_file.write(str(num) + "\n")
+		with open(self.odd_file, "w") as odd_file:
+			for num in odd:
+				odd_file.write(str(num) + "\n")
+
+		print("Scan complete! Successfully extracted even and odd numbers.")
 
 files = OddEvenDetector("numbers.txt", "even.txt", "odd.txt")
 files.read_file()
