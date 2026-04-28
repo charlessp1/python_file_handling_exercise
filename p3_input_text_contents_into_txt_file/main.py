@@ -9,7 +9,10 @@ class DiaryNgPanget:
 				diary_file.write(line_entry + "\n")
 
 				choose = input("Are there any additional lines? [Y/N]: ").upper()
-				if chokse = "N":
+				if choose == "N":
 					break
 		print("Saving diary entry...")
+		print("Diary successfully saved in: " + self.file_name)
 
+write_now = DiaryNgPanget("mylife.txt")
+write_now.write_diary()
