@@ -35,17 +35,17 @@ class HighestGWAFinder:
 		print("Ranking process complete. Saving data...")
 
 		with open(self.ranked_file, "w") as ranked_file:
-			file.write(header)
+			ranked_file.write(header_row)
 
-			for i in students:
-				student_gwa = str(students[0])
-				student_name = students[1]
-				student_section = students[2]
+			for student in students:
+				student_gwa = str(student[0])
+				student_name = student[1]
+				student_section = student[2]
 
 				save_data = student_name + ',' + student_section + ',' + student_gwa + "\n"
-				file.write(save_data)
+				ranked_file.write(save_data)
 
-		print("Saving complete!" + self.ranked_file + "successfully generated."
+		print("Saving complete! " + "File: " + self.ranked_file + " successfully generated.")
 
 run_sorter = HighestGWAFinder("student_record.csv", "student_rankings.csv")
 run_sorter.rank_students()
