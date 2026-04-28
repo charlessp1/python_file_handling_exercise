@@ -9,7 +9,9 @@ class HighestGWAFinder:
 		with open(self.student_file, "r") as student_file:
 			lines = student_file.readlines()
 
+		header_row = lines[0]
 		student_data = lines[1:]
+		students = []
 
 		print("Data loaded successfully!")
 		print("Ranking students according to theit GWA...")
@@ -23,9 +25,27 @@ class HighestGWAFinder:
 			section = chopped_row[1]
 			gwa = float(chopped_row[2])
 
-			student_record = {
-				"Name": names
-				"Section": section
-				"GWA": gwa
-				}
-			
+			student = [gwa, names, section]
+			students.append(student)
+
+		print("Starting student ranking process...")
+
+		students.sort()
+
+		print("Ranking process complete. Saving data...")
+
+		with open(self.ranked_file, "w") as ranked_file:
+			file.write(header)
+
+			for i in students:
+				student_gwa = str(students[0])
+				student_name = students[1]
+				student_section = students[2]
+
+				save_data = student_name + ',' + student_section + ',' + student_gwa + "\n"
+				file.write(save_data)
+
+		print("Saving complete!" + self.ranked_file + "successfully generated."
+
+run_sorter = HighestGWAFinder("student_record.csv", "student_rankings.csv")
+run_sorter.rank_students()
