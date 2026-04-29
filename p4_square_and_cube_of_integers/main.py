@@ -28,16 +28,26 @@ class IntegersSquareCube:
 				double_file.write(answer + "\n")
 
 		print(f"Saving complete! File name: {self.double_file}")
+		choice = input("Initializing calculation of cubes: would you like to proceed? [Y/N]: ").upper()
+		while True:
+			if choice == "Y":
+				self.cube_of_integers(source_content)
+				break
+			elif choice == "N":
+				print("Exiting program...")
+				break
+			else:
+				print("Invalid input, try again.")
 
 	def cube_of_integers(self, source_content):
-		print("Calculating cube of intehers...")
+		print("Calculating cube of integers...")
 
 		cubed_numbers = []
 		for line in source_content:
 			clean_line = line.strip()
 			if clean_line != "":
 				num = int(clean_line)
-				cubed = num ** 2
+				cubed = num ** 3
 				format = str(num) + " ** 2 = " + str(cubed)
 				cubed_numbers.append(format)
 
