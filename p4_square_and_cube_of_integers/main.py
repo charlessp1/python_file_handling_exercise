@@ -28,7 +28,9 @@ class IntegersSquareCube:
 				double_file.write(answer + "\n")
 
 		print(f"Saving complete! File name: {self.double_file}")
+
 		choice = input("Initializing calculation of cubes: would you like to proceed? [Y/N]: ").upper()
+
 		while True:
 			if choice == "Y":
 				self.cube_of_integers(source_content)
